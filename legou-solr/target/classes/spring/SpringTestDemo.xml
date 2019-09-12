@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	<!-- 开启注解配置 -->
+  <context:annotation-config/>
+	<!--   <context:component-scan base-package="com.demo"></context:component-scan> -->
+
+   	       <!-- 构造器注入 -->
+   <bean id="springDemo2" class="com.demo.SpringDemo2" init-method="customInit" destroy-method="customDestroy" >
+    <!-- 构造器赋值 -->
+    <constructor-arg index="0" value="xiao"></constructor-arg>
+   </bean>
+   
+   
+    <!-- sette注入-->
+    <!-- 想往spring容器中添加SpringDemo 就需要创建这个属性的bean 并指定要加入容器类 -->
+   <bean id="springDemo" class="com.demo.SpringDemo">
+    <!-- 使用属性set方法注入 ,给SpringDemo的SpringDemo2属性赋值  -->
+    <property name="springDemo2" ref="springDemo2"></property>
+   </bean>
+   	
+   	
+<!-- list -->
+<!-- <bean id="springDemo2" class="com.demo.SpringDemo2"> -->
+<!-- 属性set赋值 -->
+<!-- <property name="customList"> -->
+   <!--   <list> -->
+   <!--   <value>listr</value> -->
+   <!--   <value>listn</value> -->
+   <!--   <value>listb</value> -->
+   <!--   <value>listv</value> -->
+   <!--   </list> -->
+<!--  </property> 
+ <!-- set集合 -->
+   <!--  <property name="customMap"> -->
+      <!--   <map> -->
+          <!--  <entry key="1" value="zhao"/> -->
+         <!--   <entry key="2" value="qian"/> -->
+         <!--   <entry key="3" value="sun"/> -->
+         <!--   <entry key="4" value="li"/> -->
+       <!--  </map> -->
+           
+     <!--  </property> -->
+	     
+<!-- </bean> -->
+
+
+
+
+
+   	
+   		
+   </beans>

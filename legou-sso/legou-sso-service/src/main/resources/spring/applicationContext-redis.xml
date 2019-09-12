@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	
+	<!-- web.xml中配置了 服务器加载扫描所有spring/applicationContext-*.xml格式的文件 这样就以Ben加入到spring容器-->
+	<!-- jar包中提供了一个jedis连接池类 -->
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+    	<!-- 构造方法赋值 得到一个连接池 配置了IP 端口 -->
+        <constructor-arg name="host" value="192.168.25.128"></constructor-arg>
+        <constructor-arg name="port" value="6379"></constructor-arg>       
+    </bean>
+	
+		<!-- 自定义的jedis工具类,他需要一个连接池 属性 -->
+	<bean id="jedisClientPool" class="com.legou.common.redis.JedisClientPool">
+		<!-- 设置值:引用上面配置的连接池 -->
+	 <property name="jedisPool"  ref="jedisPool"></property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,4 @@
+com\legou\sso\mapper\UserMapper.class
+com\legou\sso\imp\SsoServiceImp.class
+com\legou\sso\imp\TokenServiceImp.class
+com\legou\sso\imp\LoginServiceImpl.class

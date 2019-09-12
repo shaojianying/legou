@@ -1,0 +1,3 @@
+com\legou\sso\web\controller\LongController.class
+com\legou\sso\web\controller\TokenController.class
+com\legou\sso\web\controller\SsoRegisterController.class

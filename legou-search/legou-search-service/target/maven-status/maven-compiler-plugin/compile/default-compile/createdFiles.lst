@@ -1,0 +1,5 @@
+com\legou\search\service\impl\ImportItemToSolrServiceImpl.class
+com\legou\search\service\impl\SearchServiceImpl.class
+com\legou\search\mapper\ItemMapper.class
+com\legou\search\dao\SerachDao.class
+com\legou\search\Mq\LegouActiveMQListener.class
